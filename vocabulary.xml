@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+- phpMyAdmin XML Dump
+- version 5.1.1
+- https://www.phpmyadmin.net
+-
+- Hôte : 127.0.0.1:3306
+- Généré le : dim. 05 nov. 2023 à 20:38
+- Version du serveur : 5.7.36
+- Version de PHP : 7.4.26
+-->
+
+<pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
+    <!--
+    - Structure schemas
+    -->
+    <pma:structure_schemas>
+        <pma:database name="omeka" collation="latin1_swedish_ci" charset="latin1">
+            <pma:table name="vocabulary">
+                CREATE TABLE `vocabulary` (
+                  `id` int(11) NOT NULL AUTO_INCREMENT,
+                  `owner_id` int(11) DEFAULT NULL,
+                  `namespace_uri` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL,
+                  `prefix` varchar(190) COLLATE utf8mb4_unicode_ci NOT NULL,
+                  `label` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+                  `comment` longtext COLLATE utf8mb4_unicode_ci,
+                  PRIMARY KEY (`id`),
+                  UNIQUE KEY `UNIQ_9099C97B9B267FDF` (`namespace_uri`),
+                  UNIQUE KEY `UNIQ_9099C97B93B1868E` (`prefix`),
+                  KEY `IDX_9099C97B7E3C61F9` (`owner_id`),
+                  CONSTRAINT `FK_9099C97B7E3C61F9` FOREIGN KEY (`owner_id`) REFERENCES `user` (`id`) ON DELETE SET NULL
+                ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+            </pma:table>
+        </pma:database>
+    </pma:structure_schemas>
+
+    <!--
+    - Base de données : 'omeka'
+    -->
+    <database name="omeka">
+        <!-- Table vocabulary -->
+        <table name="vocabulary">
+            <column name="id">1</column>
+            <column name="owner_id">NULL</column>
+            <column name="namespace_uri">http://purl.org/dc/terms/</column>
+            <column name="prefix">dcterms</column>
+            <column name="label">Dublin Core</column>
+            <column name="comment">Basic resource metadata (DCMI Metadata Terms)</column>
+        </table>
+        <table name="vocabulary">
+            <column name="id">2</column>
+            <column name="owner_id">NULL</column>
+            <column name="namespace_uri">http://purl.org/dc/dcmitype/</column>
+            <column name="prefix">dctype</column>
+            <column name="label">Dublin Core Type</column>
+            <column name="comment">Basic resource types (DCMI Type Vocabulary)</column>
+        </table>
+        <table name="vocabulary">
+            <column name="id">3</column>
+            <column name="owner_id">NULL</column>
+            <column name="namespace_uri">http://purl.org/ontology/bibo/</column>
+            <column name="prefix">bibo</column>
+            <column name="label">Bibliographic Ontology</column>
+            <column name="comment">Bibliographic metadata (BIBO)</column>
+        </table>
+        <table name="vocabulary">
+            <column name="id">4</column>
+            <column name="owner_id">NULL</column>
+            <column name="namespace_uri">http://xmlns.com/foaf/0.1/</column>
+            <column name="prefix">foaf</column>
+            <column name="label">Friend of a Friend</column>
+            <column name="comment">Relationships between people and organizations (FOAF)</column>
+        </table>
+        <table name="vocabulary">
+            <column name="id">5</column>
+            <column name="owner_id">1</column>
+            <column name="namespace_uri">https://www.w3.org/2019/wot/security</column>
+            <column name="prefix">confidence</column>
+            <column name="label">Security</column>
+            <column name="comment"></column>
+        </table>
+        <table name="vocabulary">
+            <column name="id">6</column>
+            <column name="owner_id">1</column>
+            <column name="namespace_uri">http://linkeddata.center/kees/v1</column>
+            <column name="prefix">Service</column>
+            <column name="label">Service</column>
+            <column name="comment"></column>
+        </table>
+    </database>
+</pma_xml_export>
